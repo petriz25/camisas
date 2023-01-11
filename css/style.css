@@ -1,0 +1,301 @@
+:root{
+    --primario: #3A5BA0;
+    --primarioOscuro: #1F4690;
+    --secundario: #FFE5B4;
+    --secundarioOscuro: rgb(229, 178, 83 );
+    --blanco: #FFF;
+    --negro: #000;
+
+    --fuentePrincipal: 'Staatliches', cursive;
+}
+
+html{
+    font-size: 62.5%; /*Parte para agregar 1rem = 10px*/
+    box-sizing: border-box; /*Hack para box model*/
+    scroll-snap-type: y mandatory;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*GLOBALES*/
+body{
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+p{
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+a{
+    text-decoration: none; /*Quitarle el interlineado a todos los enlaces*/ 
+}
+
+img{
+    width: 100%;
+}
+
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto ; /*Centramos el contenido*/
+}
+
+h1, h2, h3{
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+}
+
+h1{font-size: 4rem;}
+
+h1{font-size: 3.2rem;}
+
+h1{font-size: 2.4rem;}
+
+/*Header*/
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo{
+    margin: 3rem 0;
+}
+
+/*Navegacion*/
+.navegacion{
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    /* gap: 2rem; Separar los elementos con GAP es una forma nueva pero no se puede en safari*/
+}
+
+.navegacion__enlace{
+font-family: var(--fuentePrincipal);
+color: var(--blanco);
+font-size: 3rem;
+margin-right: 2rem;
+
+}
+
+.navegacion__enlace:last-of-type{
+    margin-right: 0;
+}
+
+.navegacion__enlace--activo,
+.navegacion__enlace:hover{
+    background-color: var(--secundario);
+    color: var(--primario);
+}
+
+/*GRID*/
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;    
+}
+
+@media(min-width:768px){
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.footer{
+    background-color: var(--primarioOscuro);
+    pad: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer__texto{
+ text-align: center;
+ font-family: var(--fuentePrincipal);
+ font-size: 2rem;
+}
+
+.producto{
+    background-color: var(--primarioOscuro);
+    padding: 1rem;
+}
+
+.producto__imagen{
+    width: 100%;
+}
+
+.producto__nombre{
+    font-size: 4rem;
+}
+
+.producto__precio{
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+
+.producto__nombre, 
+.producto__precio{
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.graficos{
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: 1/3;
+}
+
+.graficos--camisas{
+    grid-row: 2 / 3;
+    background-image: url(../FrontEndStore_inicio/img/grafico1.jpg);
+}
+
+.graficos--node{
+    background-image: url(../FrontEndStore_inicio/img/grafico2.jpg);
+    grid-row: 8/9;
+}
+
+@media(min-width:768px){
+    .graficos--node{
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+    }
+}
+
+/*NOSOTROS*/
+
+.nosotros{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;    
+}
+
+.nosotros__imagen{
+    width: 100%;
+    grid-row: 1/1;
+    grid-column: 1/3;
+    min-height: 30rem;
+}
+
+.nosotros__texto{
+    grid-row: 2/2;
+    grid-column: 1/3;
+    text-align: justify;
+}
+
+@media(min-width:768px){
+    .nosotros{
+        grid-template-columns: 3, 1fr;
+    }
+    .nosotros__texto{
+        grid-row: 1/1;
+        grid-column: 1/1;
+    }
+    .nosotros__imagen{
+        grid-row: 1/2;
+        grid-column: 2/2;
+    }
+}
+
+.ventajas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+
+.ventajas__precio{
+    grid-row: 1/1;
+}
+
+.ventajas__desarrollo{
+    grid-row: 1/2;
+}
+
+.ventajas__envio{
+    grid-row: 2/2;
+    grid-column: 2/2;
+}
+
+.ventajas__calidad{
+    grid-row: 2/2;
+}
+
+@media(min-width:768px){
+    .ventajas{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+/*PRODUCTO*/
+
+.camisa{
+    padding: 2rem;
+}
+
+@media(min-width:768px){
+    .camisa{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 2rem;
+    }
+}
+
+.formulario{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.formulario__campo{
+    /*
+    border-color: var(--primarioOscuro);
+    border-width: 1rem;
+    border-style: solid;
+    */
+
+    /*de esta manera simplificamos, tamaño, estilo y color */
+    border: 1rem solid var(--primarioOscuro); 
+    background-color:rgb(187,183,188);
+    border-radius: 1rem;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    appearance: none; /*Quitarle la flecha al select*/
+    min-width: 50%;
+
+}
+
+.formulario__submit{
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color, 0.3s ease;
+    grid-column: 1 / 3;
+}
+
+.formulario__submit:hover{
+    cursor: pointer;
+    background-color: var(--secundarioOscuro);
+
+}
+
+.talla{
+    grid-column: 1/2;
+}
+
+.
